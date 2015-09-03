@@ -6,6 +6,7 @@ var io = require('socket.io')(http);
 var moment = require('moment');
 var mongoose = require('mongoose');
 var Message;
+var port = process.env.PORT || '3000';
 var messageSchema = new mongoose.Schema({
     content: {
       type: String
@@ -47,10 +48,10 @@ mongoose.connection.on('disconnected', function(){
 
 
 app.set('views', path.join(__dirname, 'views'));
-app.set('port', 3000);
+app.set('port', port);
 app.set('view engine', 'html');
 app.engine('html', swig.renderFile);
 
 
 
-http.listen(3000);
+http.listen(port);
