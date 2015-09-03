@@ -1,5 +1,5 @@
 var app = require('express')();
-var http = require('http').Server(app);
+var http = require('http').createServer(app);
 var path = require('path');
 var swig = require('swig');
 var io = require('socket.io')(http);
@@ -53,8 +53,4 @@ app.engine('html', swig.renderFile);
 
 
 
-
-
-http.listen(3000, function(){
-  console.log('listening on port ' + 3000);
-});
+http.listen(3000);
