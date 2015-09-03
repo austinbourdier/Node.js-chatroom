@@ -56,5 +56,5 @@ app.engine('html', swig.renderFile);
 
 
 http.listen(3000, function(){
-  console.log('listening on port ' + app.get('port'));
+  console.log('listening on port ' + 3000);
 });
