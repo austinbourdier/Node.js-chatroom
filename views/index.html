@@ -39,7 +39,7 @@
   var socket = io();
   $(document).ready(function(){
     messages.forEach(function(msg) {
-      $('#messages').prepend($('<li>').text(msg.content));
+      $('#messages').prepend($('<li>').text(msg.content + "(" + msg.sentAt + ")"));
     });
     $('#chat-form').submit(function(){
       socket.emit('new message', $('#m').val());
@@ -47,7 +47,7 @@
       return false;
     });
     socket.on('new message', function(msg){
-      $('#messages').prepend($('<li>').text(msg.content));
+      $('#messages').prepend($('<li>').text(msg.content + "(" + msg.sentAt + ")"));
     });
   })
   </script>
